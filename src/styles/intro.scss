@@ -130,7 +130,12 @@
 @media only screen and (min-width:320px) and (max-width:780px) {
   .intro{
     &-top{
+      width: 90%;
+      height: 100%;
+      justify-content: space-around;
       .left{
+        width: 70%;
+        height: 26%;
         h2{
           font-size: 10vw;
           text-align: center;
@@ -141,9 +146,15 @@
         }
       }
       .right{
+        padding-left: 0;
+        justify-content: initial;  
+        width: 90%;      
         img{
           width: 70%;
           height: 40%;
+        }
+        .box{
+          height: 10px;
         }
       }
     }
