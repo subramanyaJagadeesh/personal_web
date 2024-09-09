@@ -1,0 +1,158 @@
+.skills{
+  width: 70%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  @include header;
+  .show{
+    display: flex !important;
+  }
+
+  .container{
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    .skill-listing{
+      width: 100%;
+      height: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .skill{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 2% 0;
+        h3, h2{
+          font-size: 1.5em;
+          color: white;
+          font-family: 'Cinetype Mono';
+          margin:0
+        }
+        h2 {
+          color: $secondary-color;
+          background-color: white;
+          width: max-content;
+          margin: 2% 0;
+          padding: 1% 2%;
+        }
+      }
+      
+      .progress{
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        .bar{
+          width: 80%;
+          height:1.5vh;
+          background-color: $primary-color;
+          border-radius: 20px;
+
+          .structure{
+            height: 100%;
+            background-color: $secondary-color ;
+            border-radius: 20px;
+            
+          }
+          .forty{
+            width:40%;
+            animation: progress_40 2s;
+          }
+          .eighty{
+            width: 80%;
+            animation: progress_80 2s;
+          }
+          .sixty{
+            width: 60%;
+            animation: progress_60 2s;
+          }
+          .seventy{
+            width: 70%;
+            animation: progress_70 2s;
+          }
+        }
+        .rating{
+          width: 20%;
+          text-align: center;
+          justify-content: flex-start;
+          h4{
+            font-size: 1.3em;
+            color: white;
+            font-family: 'Cinetype Regular';
+            margin:0
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes progress_40 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 40%;
+    }
+  }
+  @keyframes progress_80 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 80%;
+    }
+  }
+  @keyframes progress_60 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 60%;
+    }
+  }
+  @keyframes progress_70 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 70%;
+    }
+  }
+  
+}
+@media only screen and (min-width:320px) and (max-width:780px) {
+  .skills{
+    .header{
+      height: 10%;
+      align-items: center;
+      h1{
+        font-size: 10vw;
+      }
+    }
+    .container{
+      height: 100%;
+      justify-content: center;
+      .skill-listing{
+        h3{
+          font-size: 5vw;
+        }
+        .progress{
+          .rating{
+            h4{
+              font-size: 4vw;
+            }
+          }
+        }
+      }
+      
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@mixin header{
+    .header{
+        z-index: 1;
+        background-color: white;
+        padding: 2% 6%;
+        width: max-content;
+        margin: 5% 0;
+        height: max-content;
+        h3{
+            color:$secondary-color;
+            font-size: 1.8em;
+            text-align: left;
+            font-family: 'Cinetype Bold';
+            margin:0
+        }
+    }
+    
+}

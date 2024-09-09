@@ -1,0 +1,68 @@
+
+
+@font-face{
+  font-family: 'Cinetype Light';
+  src:url('../fonts/GTCinetype-Light.ttf');
+}
+@font-face{
+  font-family: 'Cinetype Mono';
+  src:url('../fonts/GTCinetype-Mono.ttf');
+}
+@font-face{
+  font-family: 'Cinetype Bold';
+  src:url('../fonts/GTCinetype-Bold.ttf');
+}
+@font-face{
+  font-family: 'Cinetype Regular';
+  src:url('../fonts/GTCinetype-Regular.ttf');
+}
+
+$primary-color: white;
+$secondary-color: #5535D9;
+
+@import './mixins.scss';
+@import "./nav.scss";
+@import "./intro.scss";
+@import "./skills.scss";
+@import "./experience.scss";
+@import "./contact.scss";
+@import "./pulse.scss";
+@import "./projects.scss";
+
+
+html {
+  scroll-behavior: smooth;
+}
+body{
+  #vector{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    animation: move 4s infinite linear ;
+  }
+  background-color:#0F0F0F ;
+  margin:0
+}
+@keyframes move{
+  25%{
+    opacity: .33;
+  }
+  50% {
+    opacity: 0.66;
+  }
+  75%{
+    opacity: 1;
+  }
+
+}
+
+h1,h2,h3,h4,h5{
+  margin:0
+}
+
+.app{
+  width: 100%;
+  height: 100%;
+}
