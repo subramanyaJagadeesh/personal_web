@@ -3,6 +3,12 @@ import { Pulse } from './Pulse'; // Assuming Pulse is a component used for anima
 
 const projects = [
   {
+    title: "Crime Visualization with GPT",
+    description: "Engineered a RAG system using FAISS which uses LA’s crime data as its source and further leverages OpenAI Apis to get results in the form of text or json for charting so that users can visualize the results for their crime queries.",
+    year: "2024",
+    link: "https://github.com/prithvipratahkal/Crime-Chronicles-Explore-Query-and-Visualize-LA-s-Crime-Data"
+  },
+  {
     title: "TaxGPT",
     description: "Developed a tax assistant application using Ollama, where I designed a FastAPI backend to handle communication with the AI model. Additionally, built a user interface using Vanilla JS, HTML, CSS3, and Bootstrap, providing a smooth, user-friendly experience. To maintain conversational continuity, Integrated a context storage system in an in-memory SQLite database, allowing users to return to previous interactions and pick up the conversation seamlessly. This project demonstrated my ability to create cohesive full-stack applications with memory management and context-aware AI integrations.",
     year: "2024",
