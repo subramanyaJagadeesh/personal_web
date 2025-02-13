@@ -113,6 +113,17 @@
           }
         }
       }
+      .info{
+        .list{
+          .item{
+            &-info{
+              li{
+                font-size: 0.8em;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
