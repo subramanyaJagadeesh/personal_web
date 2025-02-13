@@ -90,6 +90,17 @@
   .projects{
     &-container{
       width: 90%;
+      .info{
+        .list{
+          .item{
+            &-info{
+              li{
+                font-size: 0.8em;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

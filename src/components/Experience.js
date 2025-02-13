@@ -1,6 +1,5 @@
 import React from 'react';
 import { Pulse } from './Pulse';
-import Skills from './Skills';
 
 const list = [
   {
@@ -8,24 +7,14 @@ const list = [
     duration: "May 2024 - Present",
     company: "Sun-net Inc",
     role: "Full-Stack Software Engineer Intern",
-    tasks: [
-      "Rapidly onboarded and contributed to product development within the first week.",
-      "Developed and deployed GraphQL APIs with Java SpringBoot, enhancing product functionality.",
-      "Implemented frontend features using HTML5 and CSS3 for multiple clients.",
-      "Actively involved in product development and optimization, focusing on both front-end and back-end solutions."
-    ]
+    tasks: [ "At Sun-Net, a company specializing in software solutions for the power industry, I contributed to enhancing their Intelligent Tools platform. By developing key UI features using TypeScript and React, I enabled clients to customize their interfaces based on specific requirements, improving user experience. Additionally, I implemented GraphQL APIs with Java Spring to streamline data access and designed SQL scripts for database customizations, reducing deployment times and supporting client-specific configurations." ]
   },
   {
     position: "secondary",
     duration: "Oct 2021 - Jul 2023",
     company: "UpGrad",
     role: "Senior Software Engineer",
-    tasks: [
-      "Led the migration of a service from a monolithic architecture to a Java Spring Boot microservice, reducing API response times from 1.5s to under 200ms.",
-      "Optimized SQL queries and reduced execution times significantly, improving system performance.",
-      "Enhanced the organization's web application (React) through refactoring, optimizing computations, memoizing data, and implementing code-splitting and lazy loading techniques, resulting in a significant reduction of 30% (2s) in load times.",
-      "Led the unit testing efforts for the frontend (react-testing) and backend (JUnit) applications thereby covering 90% of the codebase, further enhancing the robustness of the application."
-    ]
+    tasks: [ "UpGrad, a leading online higher education platform, allowed me to make a significant impact on the learner experience. In this role, I optimized the Learner Management System’s UI, implementing techniques like memoization, lazy loading, and code-splitting, which cut load times by 50% for 6,000 daily active users. I led the migration of the Learner Progress Service to Spring Boot microservices, resulting in an 80% reduction in latency for real-time course tracking. By optimizing the Notifications Service database, I enhanced query efficiency by 90%, ensuring timely alerts. I also implemented a unit testing strategy across the codebase, achieving over 90% coverage and improving deployment quality. Mentoring team members was a rewarding aspect of this role, where I encouraged best practices and contributed to the team’s overall productivity." ]
   },
   {
     position: "secondary",
@@ -33,8 +22,7 @@ const list = [
     company: "Khoros",
     role: "Software Engineer",
     tasks: [
-      "Learned Scala and developed a suite of efficient APIs with Finatra, GraphQL and PostgreSQL within 2 weeks, further deployed them on containers using Docker orchestrated via Kubernetes.",
-      "Worked with a team of 2 to translate legacy JS features into fast, robust and responsive Typescript React"
+      "At Khoros, a global customer engagement company, I worked on critical features of their customer interaction platforms. I developed GraphQL APIs in Scala for Vault, an access governance tool, facilitating one-click access management across social media accounts, which enhanced security and user control. I also helped modernize the Content Center by migrating it to TypeScript React from CoffeeScript and Backbone.js, which improved load times by 80% for 2,000 daily users."
     ]
   },
   {
@@ -43,12 +31,7 @@ const list = [
     company: "Royal Brothers",
     role: "Full-Stack Developer",
     tasks: [
-      "Learned new frameworks like React and Rails in a mere couple weeks.",
-      "Worked on the whole stack of the company's web app (React (UI), Rails(APIs), Postgres).",
-      "Developed and tested robust and performance-oriented features for the web app.",
-      "Also had the opportunity to build the company's mobile apps, built on React-Native.",
-      "In the beginning, solely contributed to the development, testing, and publishing of the said mobile apps.",
-      "Had a thorough understanding of the company's products in less than 2 months."
+      "Working at Royal Brothers, India’s premier motorcycle rental service, I developed and deployed key updates for their React Native app, which supported 4,000 daily active users. This role required a hands-on approach to full-stack development, ensuring a seamless user experience for customers utilizing the platform for short- and long-term bike rentals across multiple Indian cities.",
     ]
   },
   {
@@ -57,12 +40,7 @@ const list = [
     company: "Woke Cartel",
     role: "Co-Founder",
     tasks: [
-      "Learned frameworks like Vue and Express in a short amount of time.",
-      "Developed, tested and published 2 main products for the company.",
-      "1. A Content Management System (CMS) to provide CRUD operations on data that it provides.",
-      "2. A digital sports media website, which receives its content from the CMS.",
-      "Deployed the 2 applications on Digital Ocean, with the help of nginx and pm2."
-    ]
+      "Founded a creative agency catering to variety of needs a business requires, from ideation to building the final product. Here, I quickly learned frameworks like Nuxt.js and Express to develop, test, and publish two main products for the company. The first was a Content Management System (CMS) enabling CRUD operations, which served as the content source for the second product—a digital sports media website. I deployed both applications, with the frontend on Digital Ocean and backend functionalities using Firebase functions."    ]
   }
 ];
 
