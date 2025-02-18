@@ -3,6 +3,12 @@ import { Pulse } from './Pulse'; // Assuming Pulse is a component used for anima
 
 const projects = [
   {
+    title: "WhisperCode",
+    year: "2025",
+    description: "WhisperCodeDesigned and shipped a voice-powered VS Code extension that converts speech to code, leveraging Typescript, Whisper for transcription and OpenAI for code generation. Supports multiple programming languages and enhances hands-free coding productivity.",
+    link: "https://github.com/subramanyaJagadeesh/whispercode",
+  },
+  {
     title: "Crime Visualization with GPT",
     description: "Engineered a RAG system using FAISS which uses LA’s crime data as its source and further leverages OpenAI Apis to get results in the form of text or json for charting so that users can visualize the results for their crime queries.",
     year: "2024",
@@ -19,18 +25,6 @@ const projects = [
     description: "Led the design and development of a scheduling algorithm in C++ for a distributed task scheduler in a class-wide project. Provided foundational architecture to peers, guiding the system's build and ensuring effective task distribution across network nodes. Collaborated with classmates on integrating the scheduler, iterating on design feedback to achieve efficient load balancing and scalability. Successfully implemented the scheduler, demonstrating reliable performance across distributed nodes, contributing to the overall success of the system.",
     year: "2024",
     link: "https://github.com/275-challenge-project-2024/scheduler-algorithm"
-  },
-  {
-    title: "Paxos with Neurelo",
-    description: "In a personal project, Implemented the Multi-Decree Paxos protocol using Python, integrating Neurelo's Data Access APIs to facilitate message storage and retrieval from a remote PostgreSQL instance. The challenge was in understanding the nuances of the Paxos protocol and adapting it for efficient communication with a remote database, which acted as a message queue. This experience honed my problem-solving skills as I navigated complex distributed systems and ensured robust message handling across nodes using the PostgreSQL queue.",
-    year: "2024",
-    link: "https://github.com/subramanyaJagadeesh/paxos-with-neurelo"
-  },
-  {
-    title: "Theatre Management",
-    description: "Led the architecture and deployment of a theatre management system, working with three group members. Further, deployed the Flask server on an AWS EC2 instance, attaching an ELB for load balancing, and hosted the React frontend on S3. Took charge of developing the frontend application while mentoring a teammate in React.js. Additionally, Contributed to the backend by designing and implementing several key APIs. This project demonstrated my leadership, technical skills, and ability to collaborate in a team environment.",
-    year: "2023",
-    link: "https://github.com/subramanyaJagadeesh/teamproject-nullpointer"
   },
   {
     title: "Consistent hashing",
