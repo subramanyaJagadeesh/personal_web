@@ -5,7 +5,7 @@ const projects = [
   {
     title: "WhisperCode",
     year: "2025",
-    description: "WhisperCodeDesigned and shipped a voice-powered VS Code extension that converts speech to code, leveraging Typescript, Whisper for transcription and OpenAI for code generation. Supports multiple programming languages and enhances hands-free coding productivity.",
+    description: "Designed and shipped a voice-powered VS Code extension that converts speech to code, leveraging Typescript, Whisper for transcription and OpenAI for code generation. Supports multiple programming languages and enhances hands-free coding productivity.",
     link: "https://github.com/subramanyaJagadeesh/whispercode",
   },
   {

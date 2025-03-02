@@ -3,24 +3,36 @@ import React from 'react';
 
 const data = [
   {
-    name:"HTML5, CSS, JavaScript (ES5, ES6), TypeScript, Java, Python, Ruby, C++, GraphQL, Scala, Go.",
-    category: "Languages",
+    name:"HTML, CSS3, SCSS, JavaScript/TypeScript (React/Vue), Redux, Tailwind CSS, Next.js, React native, D3.",
+    category: "Frontend",
   },
   {
-    name:"React, SASS, Next.js, Angular, Vue.js, Redux, Node.js, Express.js, Jest, JUnit, React-testing, Spring Boot, Flask, RESTful APIs, Django, Kafka, D3.",
-    category: "Frameworks",
+    name:"Python (Flask/Django/Fast), Java (Spring Boot), GraphQL, Scala, RESTful APIs, C++, Go, gRPC, Kafka",
+    category: "Backend",
+  },
+  {
+    name:"AWS, Azure, GCP, Heroku, Vercel.",
+    category: "Cloud",
   },
   {
     name:"SQL (MySQL, Postgres, MSSQL, Oracle), NoSQL (MongoDB, Firebase).",
-    category: "Database",
+    category: "Databases",
   },
   {
-    name:"Docker, Kubernetes, AWS, Heroku, Jenkins.",
+    name:"CI/CD Jenkins, Docker, Kubernetes.",
     category: "DevOps",
   },
   {
-    name:"Git CLI, Sentry, Grafana, Instana, Webpack, Linux, Unix.",
-    category:"Others",
+    name:"Git, Jira, Figma, Sentry, Instana, Grafana, Gradle, Maven, OpenAI sdk, Postman, Webpack, NPM",
+    category:"Tools",
+  },
+  {
+    name:"JUnit, Jest, Enzyme, React Testing Library, Mocha",
+    category:"Testing",
+  },
+  {
+    name:"MVCC, Design Patterns, Microservices, Async Programming, Distributed Systems",
+    category:"System Design",
   },
 ]
 
@@ -39,12 +51,12 @@ const Skills = () => {
           data.map(skill=>
             <div key={skill.name} className="skill-listing">
               <div className='skill'>
-                <h2>
-                  {skill.category}
-                </h2>
                 <h3>
-                  {skill.name}
+                  {skill.category}
                 </h3>
+                <h4>
+                  {skill.name}
+                </h4>
               </div>
             </div>
           )

@@ -29,13 +29,13 @@
         flex-direction: column;
         justify-content: space-between;
         margin: 2% 0;
-        h3, h2{
+        h4, h3{
           font-size: 1.5em;
           color: white;
           font-family: 'Cinetype Mono';
           margin:0
         }
-        h2 {
+        h3 {
           color: $secondary-color;
           background-color: white;
           width: max-content;
@@ -143,13 +143,13 @@
       justify-content: center;
       .skill-listing{
         .skill{
-          h3{
+          h{
             font-size: 1em;
           }
         }
         .progress{
           .rating{
-            h4{
+            h5{
               font-size: 4vw;
             }
           }

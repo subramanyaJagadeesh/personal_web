@@ -5,10 +5,12 @@ import Contact from './components/Contact';
 import Vector from './images/vector.png'
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <div className="App">
+      <Nav />
       <Intro/>
       <Experience/>
       <Projects />
