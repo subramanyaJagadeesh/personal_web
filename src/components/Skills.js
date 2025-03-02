@@ -31,7 +31,7 @@ const data = [
     category:"Testing",
   },
   {
-    name:"MVCC, Design Patterns, Microservices, Async Programming, Distributed Systems",
+    name:"MVC, Design Patterns, Microservices, Async Programming, Distributed Systems",
     category:"System Design",
   },
 ]
