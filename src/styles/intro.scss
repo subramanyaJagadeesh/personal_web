@@ -158,13 +158,13 @@
           height: 10px;
         }
         h2{
-          font-size: 1.8em;
+          font-size: 1.5em;
         }
         h4{
-          font-size: 0.9em;
+          font-size: 0.8em;
         }
         h3{
-          font-size: 1.2em;
+          font-size: 1em;
         }
       }
     }
@@ -180,10 +180,10 @@
   font-family: 'Cinetype Bold';
   background-color: $secondary-color; // LinkedIn brand color
   color: white; // Text color for contrast
-  padding: 10px 20px; // Padding around the text
+  padding: 10px 10px; // Padding around the text
   border-radius: 5px; // Rounded corners for the button
   text-decoration: none; // Remove underline from the link
-  font-size: 16px; // Font size
+  font-size: 0.8em; // Font size
   font-weight: bold; // Make text bold
   text-align: center; // Center align the text
   display: inline-block; // Display as inline-block to apply padding and margin
