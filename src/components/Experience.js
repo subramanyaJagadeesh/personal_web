@@ -7,14 +7,14 @@ const list = [
     duration: "May 2024 - Present",
     company: "Sun-net Inc",
     role: "Full-Stack Software Engineer Intern",
-    tasks: [ "At Sun-Net, a company specializing in software solutions for the power industry, I contributed to enhancing their Intelligent Tools platform. By developing key UI features using TypeScript and React, I enabled clients to customize their interfaces based on specific requirements, improving user experience. Additionally, I implemented GraphQL APIs with Java Spring to streamline data access and designed SQL scripts for database customizations, reducing deployment times and supporting client-specific configurations." ]
+    tasks: [ "At Sun-Net, a company specializing in software solutions for the power industry, I contributed to enhancing their Intelligent Tools platform. I optimized query resolution times by 90% by integrating an Agentic AI chat bot. By developing key UI features using TypeScript and React, I enabled clients to customize their interfaces based on specific requirements, improving user experience. Additionally, I implemented REST APIs with Java Spring to streamline data access and designed SQL scripts for database customizations, reducing deployment times and supporting client-specific configurations." ]
   },
   {
     position: "secondary",
     duration: "Oct 2021 - Jul 2023",
     company: "UpGrad",
     role: "Senior Software Engineer",
-    tasks: [ "UpGrad, a leading online higher education platform, allowed me to make a significant impact on the learner experience. In this role, I optimized the Learner Management System’s UI, implementing techniques like memoization, lazy loading, and code-splitting, which cut load times by 50% for 6,000 daily active users. I led the migration of the Learner Progress Service to Spring Boot microservices, resulting in an 80% reduction in latency for real-time course tracking. By optimizing the Notifications Service database, I enhanced query efficiency by 90%, ensuring timely alerts. I also implemented a unit testing strategy across the codebase, achieving over 90% coverage and improving deployment quality. Mentoring team members was a rewarding aspect of this role, where I encouraged best practices and contributed to the team’s overall productivity." ]
+    tasks: [ "UpGrad, a leading online higher education platform, allowed me to make a significant impact on the learner experience. In this role, I optimized the Learner Management System’s UI, implementing techniques like memoization, lazy loading, and code-splitting, which cut load times by 50% for 6,000 daily active users. I led the migration of the Learner Progress Service to Spring Boot microservices, resulting in an 80% reduction in latency for real-time course tracking. By optimizing the Notifications Service database, I enhanced query efficiency by 90%, ensuring timely alerts. I also implemented a unit testing strategy across the codebase, achieving over 90% coverage and improving deployment quality. By Implementing CI/CD pipelines using Jenkins, Docker and Kubernetes I reduced the deployment cycles to about 90% providing for faster and issue free builds. Mentoring team members was a rewarding aspect of this role, where I encouraged best practices and contributed to the team’s overall productivity." ]
   },
   {
     position: "secondary",

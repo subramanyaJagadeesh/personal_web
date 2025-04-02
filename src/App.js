@@ -6,10 +6,12 @@ import Vector from './images/vector.png'
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Nav from './components/Nav';
+import { Analytics } from '@vercel/analytics/next';
 
 function App() {
   return (
     <div className="App">
+      <Analytics />
       <Nav />
       <Intro/>
       <Experience/>
