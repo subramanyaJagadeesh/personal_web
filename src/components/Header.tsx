@@ -27,10 +27,11 @@ const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
     }
   };
 
-  // Close menu when route changes
+  // Close menu and scroll to top when route changes
   useEffect(() => {
     setIsMenuOpen(false);
     document.body.style.overflow = 'auto';
+    window.scrollTo(0, 0);
   }, [location]);
 
   // Handle scroll effect
