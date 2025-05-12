@@ -62,8 +62,8 @@ const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
   ];
 
   const socialLinks = [
-    { icon: <Github size={20} />, url: 'https://github.com/username', label: 'GitHub' },
-    { icon: <Linkedin size={20} />, url: 'https://linkedin.com/in/username', label: 'LinkedIn' },
+    { icon: <Github size={20} />, url: 'https://github.com/subramanyaJagadeesh', label: 'GitHub' },
+    { icon: <Linkedin size={20} />, url: 'https://linkedin.com/in/subramanyajagadeesh', label: 'LinkedIn' },
   ];
 
   return (

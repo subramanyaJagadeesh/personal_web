@@ -26,7 +26,7 @@ const Home = () => {
   return (
     <SectionTransition>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center pt-20 md:pt-0">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div 
@@ -36,7 +36,7 @@ const Home = () => {
               transition={{ duration: 0.5 }}
             >
               <motion.span 
-                className="inline-block text-primary-600 dark:text-primary-400 font-medium mb-4"
+                className="inline-block text-primary-600 dark:text-primary-400 font-medium mb-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -45,7 +45,7 @@ const Home = () => {
               </motion.span>
               
               <motion.h1 
-                className="font-bold text-5xl sm:text-6xl md:text-7xl text-dark-900 dark:text-white mb-6"
+                className="font-bold text-4xl sm:text-5xl md:text-6xl text-dark-900 dark:text-white mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -54,7 +54,7 @@ const Home = () => {
               </motion.h1>
               
               <motion.h2 
-                className="text-xl sm:text-2xl text-dark-600 dark:text-dark-300 mb-8 leading-relaxed"
+                className="text-lg sm:text-xl text-dark-600 dark:text-dark-300 mb-6 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -79,7 +79,7 @@ const Home = () => {
             </motion.div>
 
             <motion.div
-              className="relative aspect-square rounded-full overflow-hidden shadow-2xl border-8 border-white dark:border-dark-800"
+              className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto lg:mx-0 rounded-full overflow-hidden shadow-2xl border-8 border-white dark:border-dark-800"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
