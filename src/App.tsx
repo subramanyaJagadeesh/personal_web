@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 
 // Components
 import Layout from './components/Layout';
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <>
+      <Analytics />
       <Cursor />
       <Layout toggleTheme={toggleTheme} currentTheme={theme}>
         <AnimatePresence mode="wait">
