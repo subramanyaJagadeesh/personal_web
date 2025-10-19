@@ -6,11 +6,18 @@ import SectionTransition from '../components/ui/SectionTransition';
 const About = () => {
 	const experiences = [
 		{
+			company: "Sun-net Inc",
+			role: "Software Engineer",
+			period: "June 2025 - Present",
+			description: "At Sun-Net, a company specializing in software solutions for the utlitiy industry, I contributed to enhancing their product called Intelligent Tools of Operation and Analytics. I optimized query resolution times by 90% by integrating an Agentic AI chat bot UI written in React and SCSS. Additionally, I implemented REST APIs with Java Spring for core services and Python Fast API for RAG and agent based chat to streamline data access." ,
+			technologies: ['HTML', 'SCSS', 'Javascript', 'Java', 'React', 'Python', 'FastAPI', 'SQL']
+		},
+		{
 			company: 'Sun-net Inc',
 			role: 'Full-Stack Software Engineer Intern',
 			period: 'May 2024 - May 2025',
-			description: 'At Sun-Net, a company specializing in software solutions for the power industry, I contributed to enhancing their Intelligent Tools platform. I optimized query resolution times by 90% by integrating an Agentic AI chat bot. By developing key UI features using TypeScript and React, I enabled clients to customize their interfaces based on specific requirements, improving user experience. Additionally, I implemented REST APIs with Python Fastapi to streamline agentic actions and query resolutions with the chat bot and designed SQL scripts for database customizations, reducing deployment times and supporting client-specific configurations.',
-			technologies: ['HTML', 'SCSS', 'Javascript', 'Python', 'FastAPI', 'SQL']
+			description: "By developing key UI features using Javascript and React, I enabled clients to customize their interfaces based on specific requirements, improving user experience. I designed SQL scripts for database customizations, reducing deployment times and supporting client-specific configurations." ,
+			technologies: ['HTML', 'SCSS', 'Javascript', 'Java', 'React', 'Python', 'FastAPI', 'SQL']
 		},
 		{
 			company: 'Upgrad',
