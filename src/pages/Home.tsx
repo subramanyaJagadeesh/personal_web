@@ -22,15 +22,53 @@ const projects = [
     image: swiftselectImg,
   },
 ];
+
+const sectionReveal = {
+  hidden: {
+    opacity: 0,
+    y: 52,
+    rotateX: -30,
+    scaleY: 0.86,
+    transformOrigin: 'bottom center',
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    scaleY: 1,
+    transformOrigin: 'bottom center',
+  },
+};
+
+// Fire as soon as the block starts entering view; positive bottom margin extends the
+// intersection root so the animation begins before the user reaches the section edge.
+const revealViewport = {
+  once: true,
+  amount: 'some' as const,
+  margin: '0px 0px 32% 0px',
+} as const;
+
+// Featured block: start animating even earlier so nothing feels “empty” under About.
+const revealViewportFeatured = {
+  once: true,
+  amount: 'some' as const,
+  margin: '0px 0px 45% 0px',
+} as const;
+
+const revealTransition = {
+  duration: 0.42,
+  ease: [0.2, 0.95, 0.25, 1] as const,
+};
+
 const Home = () => {
   return (
     <SectionTransition>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 md:pt-0">
-        <div className="container-custom">
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div 
-              className="max-w-2xl"
+              className="section-content"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -68,7 +106,7 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <Link to="/projects" className="btn-primary group">
+                <Link to="/about" className="btn-primary group">
                   <span>View My Work</span>
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
@@ -94,7 +132,7 @@ const Home = () => {
         </div>
         
         <motion.div 
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
@@ -109,12 +147,66 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Featured Projects Section */}
-      <section className="section bg-dark-50 dark:bg-dark-800">
-        <div className="container-custom">
+      {/* About Preview Section — slightly less bottom padding before Featured */}
+      <section className="section pb-10 sm:pb-12 md:pb-14">
+        <motion.div
+          className="container-custom"
+          style={{ perspective: 1200 }}
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealViewport}
+          transition={revealTransition}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl font-bold mb-4">About Me</h2>
+              <p className="text-dark-600 dark:text-dark-300 leading-relaxed">
+                I am a full-stack software engineer focused on building reliable products with clean UI and high performance.
+                My background spans frontend architecture, backend APIs, and AI-enabled workflows, with a strong emphasis on usability.
+              </p>
+            </div>
+            <div className="project-card">
+              <div className="project-card-body">
+                <h3 className="project-card-title">Career Highlights</h3>
+                <ul className="mt-3 space-y-2 text-sm text-dark-700 dark:text-dark-300">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full mr-2 mt-1.5"></span>
+                    6+ years across product engineering and full-stack development.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full mr-2 mt-1.5"></span>
+                    Strong experience in React, Java/Spring, Python/FastAPI, and cloud workflows.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full mr-2 mt-1.5"></span>
+                    Built and optimized systems for scalability, performance, and developer productivity.
+                  </li>
+                </ul>
+                <Link to="/about" className="btn-secondary mt-5 inline-flex items-center">
+                  Learn More
+                  <ArrowRight className="ml-2" size={18} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Featured Projects Section — tighter top gap + earlier reveal after About */}
+      <section className="pb-16 pt-8 sm:pb-20 sm:pt-10 md:pb-24 md:pt-12">
+        <motion.div
+          className="container-custom"
+          style={{ perspective: 1200 }}
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealViewportFeatured}
+          transition={revealTransition}
+        >
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
-            <p className="text-dark-600 dark:text-dark-300 max-w-2xl mx-auto">
+            <p className="text-dark-600 dark:text-dark-300 section-content">
               A selection of my recent work. These projects showcase my skills and approach to solving problems.
             </p>
           </div>
@@ -124,36 +216,36 @@ const Home = () => {
             
                 {projects.map((project) => (
                     <motion.div 
-                    className="bg-white dark:bg-dark-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow group"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.3 }}
+                    className="project-card group"
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
                     key={project.title}
                   >
-                        <div className="h-64 bg-dark-200 dark:bg-dark-700 relative overflow-hidden">
+                        <div className="project-card-media">
                             <img 
                                 src={project.image} 
-                                alt="Project thumbnail" 
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                alt={project.title}
+                                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                             />
                         </div>
-                        <div className="p-6">
-                            <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-xl font-semibold">{project.title}</h3>
-                            <div className="flex space-x-2">
-                                <a href="#" className="text-dark-600 hover:text-primary-600 dark:text-dark-300 dark:hover:text-primary-400 transition-colors">
-                                <Github size={20} />
+                        <div className="project-card-body">
+                            <div className="flex items-start justify-between gap-4">
+                            <h3 className="project-card-title">{project.title}</h3>
+                            <div className="project-card-actions" role="group" aria-label="Project links">
+                                <a href="#" className="project-card-action" aria-label="GitHub">
+                                <Github size={18} strokeWidth={1.75} />
                                 </a>
-                                <a href="#" className="text-dark-600 hover:text-primary-600 dark:text-dark-300 dark:hover:text-primary-400 transition-colors">
-                                <ExternalLink size={20} />
+                                <a href="#" className="project-card-action" aria-label="External link">
+                                <ExternalLink size={18} strokeWidth={1.75} />
                                 </a>
                             </div>
                             </div>
-                            <p className="text-dark-600 dark:text-dark-300 mb-4">
+                            <p className="project-card-desc line-clamp-4">
                                 {project.description}
                             </p>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="mt-4 flex flex-wrap gap-1.5">
                                 {project.technologies.map((technology) => (
-                                    <span className="px-3 py-1 bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-300 text-xs rounded-full">{technology}</span>
+                                    <span key={technology} className="project-tag">{technology}</span>
                                 ))}
                             </div>
                         </div>
@@ -167,15 +259,23 @@ const Home = () => {
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Skills Section */}
       <section className="section">
-        <div className="container-custom">
+        <motion.div
+          className="container-custom"
+          style={{ perspective: 1200 }}
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealViewport}
+          transition={revealTransition}
+        >
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">My Expertise</h2>
-            <p className="text-dark-600 dark:text-dark-300 max-w-2xl mx-auto">
+            <p className="text-dark-600 dark:text-dark-300 section-content">
               I specialize in a range of technologies and methodologies to deliver high-quality software solutions.
             </p>
           </div>
@@ -183,65 +283,79 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Skill 1 */}
             <motion.div 
-              className="bg-white dark:bg-dark-900 p-6 rounded-lg shadow-md hover-lift"
+              className="project-card hover-lift"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="text-primary-600 dark:text-primary-400 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9" /><path d="m13 11 2 2 4-4" /></svg>
+              <div className="project-card-body">
+                <div className="text-primary-600 dark:text-primary-400 mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9" /><path d="m13 11 2 2 4-4" /></svg>
+                </div>
+                <h3 className="project-card-title">Full Stack Development</h3>
+                <p className="project-card-desc">
+                  Building responsive web applications with modern frameworks and libraries. Creating seamless user experiences across devices.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Full Stack Development</h3>
-              <p className="text-dark-600 dark:text-dark-300">
-                Building responsive web applications with modern frameworks and libraries. Creating seamless user experiences across devices.
-              </p>
             </motion.div>
 
             {/* Skill 2 */}
             <motion.div 
-              className="bg-white dark:bg-dark-900 p-6 rounded-lg shadow-md hover-lift"
+              className="project-card hover-lift"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="text-primary-600 dark:text-primary-400 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+              <div className="project-card-body">
+                <div className="text-primary-600 dark:text-primary-400 mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                </div>
+                <h3 className="project-card-title">DevOps & Cloud</h3>
+                <p className="project-card-desc">
+                  Implementing CI/CD pipelines and infrastructure as code. Deploying and managing applications in the cloud.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">DevOps & Cloud</h3>
-              <p className="text-dark-600 dark:text-dark-300">
-                Implementing CI/CD pipelines and infrastructure as code. Deploying and managing applications in the cloud.
-              </p>
             </motion.div>
 
             {/* Skill 3 */}
             <motion.div 
-              className="bg-white dark:bg-dark-900 p-6 rounded-lg shadow-md hover-lift"
+              className="project-card hover-lift"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="text-primary-600 dark:text-primary-400 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+              <div className="project-card-body">
+                <div className="text-primary-600 dark:text-primary-400 mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                </div>
+                <h3 className="project-card-title">AI enabled applications</h3>
+                <p className="project-card-desc">
+                  Developing applications that are powered by AI to solve real-world problems.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">AI enabled applications</h3>
-              <p className="text-dark-600 dark:text-dark-300">
-                Developing applications that are powered by AI to solve real-world problems.
-              </p>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* CTA Section */}
-      <section className="section bg-primary-600 dark:bg-primary-900">
-        <div className="container-custom">
-          <div className="text-center text-white">
+      <section className="section">
+        <motion.div
+          className="container-custom"
+          style={{ perspective: 1200 }}
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealViewport}
+          transition={revealTransition}
+        >
+          <div className="p-10 text-center">
             <h2 className="text-3xl font-bold mb-6">Let's Work Together</h2>
-            <p className="text-primary-100 max-w-2xl mx-auto mb-8">
+            <p className="text-dark-600 dark:text-dark-300 section-content mb-8">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
-            <Link to="/contact" className="btn bg-white text-primary-700 hover:bg-primary-50 focus:ring-white">
+            <Link to="/contact" className="btn-primary">
               Get In Touch
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
     </SectionTransition>
   );

@@ -64,9 +64,9 @@ const Contact = () => {
     <SectionTransition>
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
-        <div className="container-custom">
+        <div className="container-custom relative z-10">
           <motion.div 
-            className="text-center max-w-3xl mx-auto"
+            className="section-content text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -80,7 +80,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="section bg-dark-50 dark:bg-dark-800">
+      <section className="section">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Info */}
@@ -147,7 +147,8 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="bg-white dark:bg-dark-900 rounded-lg shadow-md p-8">
+              <div className="project-card">
+                <div className="project-card-body p-8">
                 <h2 className="text-2xl font-semibold mb-6">Send a Message</h2>
                 
                 {submitted ? (
@@ -172,7 +173,7 @@ const Contact = () => {
                         value={formState.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-dark-300 dark:border-dark-700 rounded-lg bg-white dark:bg-dark-800 text-dark-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
+                        className="field"
                       />
                     </div>
                     
@@ -187,7 +188,7 @@ const Contact = () => {
                         value={formState.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-dark-300 dark:border-dark-700 rounded-lg bg-white dark:bg-dark-800 text-dark-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
+                        className="field"
                       />
                     </div>
                     
@@ -202,7 +203,7 @@ const Contact = () => {
                         value={formState.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-dark-300 dark:border-dark-700 rounded-lg bg-white dark:bg-dark-800 text-dark-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
+                        className="field"
                       />
                     </div>
                     
@@ -217,7 +218,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         rows={5}
-                        className="w-full px-4 py-2 border border-dark-300 dark:border-dark-700 rounded-lg bg-white dark:bg-dark-800 text-dark-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
+                        className="field"
                       ></textarea>
                     </div>
                     
@@ -243,6 +244,7 @@ const Contact = () => {
                     </button>
                   </form>
                 )}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -252,11 +254,13 @@ const Contact = () => {
       {/* CTA Section */}
       <section className="section">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-6">Looking for a Developer?</h2>
-          <p className="text-dark-600 dark:text-dark-300 max-w-2xl mx-auto mb-8">
-            I'm currently available for full-time opportunities. 
-            If you're looking for a developer who can bring your ideas to life, let's talk!
-          </p>
+          <div className="section-content">
+            <h2 className="text-3xl font-bold mb-6">Looking for an Engineer?</h2>
+            <p className="text-dark-600 dark:text-dark-300 mb-8">
+              I'm currently available for full-time opportunities.
+              If you're looking for a Senior Engineer who can bring your ideas to life, let's talk!
+            </p>
+          </div>
         </div>
       </section>
     </SectionTransition>

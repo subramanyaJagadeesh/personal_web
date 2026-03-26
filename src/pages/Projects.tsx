@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useMemo } from 'react';
 import { Github } from 'lucide-react';
 
 // Components
@@ -23,8 +24,9 @@ interface Project {
 const Projects = () => {
   
   // Sample projects data
-  const projects: Project[] = [
-    {
+  const projects = useMemo<Project[]>(
+    () => [
+      {
 			title: 'WhisperCode',
 			description: 'A voice-powered VS Code extension that converts speech to code using Typescript, Whisper for transcription and OpenAI for code generation. Enhances productivity through hands-free coding across multiple programming languages.',
 			technologies: ['Typescript', 'OpenAI APIs'],
@@ -59,15 +61,17 @@ const Projects = () => {
 			image: consistentImg,
 			technologies: ['Python', 'Distributed Computing', 'Network Programming'],
 		}
-  ];
+    ],
+    []
+  );
 
   return (
     <SectionTransition>
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
-        <div className="container-custom">
+        <div className="container-custom relative z-10">
           <motion.div 
-            className="text-center max-w-3xl mx-auto"
+            className="section-content text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -82,10 +86,8 @@ const Projects = () => {
       </section>
 
       {/* Projects Section */}
-      <section className="section bg-dark-50 dark:bg-dark-800">
+      <section className="section">
         <div className="container-custom">
-          {/* Category Filter */}
-
           {/* Projects Grid */}
           <AnimatePresence mode="wait">
             <motion.div 
@@ -95,55 +97,52 @@ const Projects = () => {
               transition={{ duration: 0.5 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {projects.map(project => (
-                <motion.div
-                  key={project.title}
-                  className="bg-white dark:bg-dark-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow group"
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                >
-                  <div className="h-48 bg-dark-200 dark:bg-dark-700 relative overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-xl font-semibold">{project.title}</h3>
-                      <div className="flex space-x-2">
-                        <a 
-                          href={project.github}
-                          className="text-dark-600 hover:text-primary-600 dark:text-dark-300 dark:hover:text-primary-400 transition-colors"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="View source code on GitHub"
-                        >
-                          <Github size={20} />
-                        </a>
+              {projects.map((project) => (
+                  <motion.div
+                    key={project.title}
+                    className="project-card group"
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                  >
+                    <div className="project-card-media">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="project-card-body">
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="project-card-title">{project.title}</h3>
+                        <div className="project-card-actions" role="group" aria-label="Project links">
+                          <a
+                            href={project.github}
+                            className="project-card-action"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View source code on GitHub"
+                          >
+                            <Github size={18} strokeWidth={1.75} />
+                          </a>
+                        </div>
+                      </div>
+                      <p className="project-card-desc line-clamp-3">
+                        {project.description}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-1.5">
+                        {project.technologies.map((tag, index) => (
+                          <span key={index} className="project-tag">
+                            {tag}
+                          </span>
+                        ))}
                       </div>
                     </div>
-                    <p className="text-dark-600 dark:text-dark-300 mb-4">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tag, index) => (
-                        <span 
-                          key={index}
-                          className="px-3 py-1 bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-300 text-xs rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
             </motion.div>
           </AnimatePresence>
         </div>

@@ -2,6 +2,31 @@ import { motion } from 'framer-motion';
 
 // Components
 import SectionTransition from '../components/ui/SectionTransition';
+import SkillsWordCloud from '../components/ui/SkillsWordCloud';
+
+/** Source list for skills (flattened into a unique word list for the 3D cloud). */
+const SKILL_CATEGORIES = [
+	{
+		category: 'Frontend',
+		skills: ['React.js', 'Next.js', 'Vue.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'SCSS', 'Redux', 'Context API', 'Hooks'],
+	},
+	{
+		category: 'Backend',
+		skills: ['Java', 'Spring Boot', 'Node.js', 'Express', 'Python', 'FastAPI', 'Flask', 'Django', 'GraphQL', 'REST APIs'],
+	},
+	{
+		category: 'DevOps & Cloud',
+		skills: ['AWS', 'Heroku', 'Vercel', 'Firebase', 'Docker', 'Kubernetes', 'Jenkins', 'Git'],
+	},
+	{
+		category: 'Testing',
+		skills: ['JUnit', 'Jest', 'Enzyme', 'React Testing Library', 'Mocha'],
+	},
+	{
+		category: 'Other',
+		skills: ['Agile', 'Scrum', 'Jira', 'Figma', 'Sentry', 'Instana', 'Grafana', 'Gradle', 'Maven', 'Postman', 'Webpack', 'ChatGPT', 'Cursor'],
+	},
+] as const;
 
 const About = () => {
 	const experiences = [
@@ -64,103 +89,65 @@ const About = () => {
 		}
 	];
 
-	const skills = [
-		{
-			category: 'Frontend',
-			skills: ['React.js', 'Next.js', 'Vue.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'SCSS', 'Redux', 'Context API', 'Hooks']
-		},
-		{
-			category: 'Backend',
-			skills: ['Java', 'Spring Boot', 'Node.js', 'Express', 'Python', 'FastAPI', 'Flask', 'Django', 'GraphQL', 'REST APIs']
-		},
-		{
-			category: 'DevOps & Cloud',
-			skills: ['AWS', 'Heroku', 'Vercel', 'Firebase', 'Docker', 'Kubernetes', 'Jenkins', 'Git']
-		},
-		{
-			category: 'Testing',
-			skills: ['JUnit', 'Jest', 'Enzyme', 'React Testing Library', 'Mocha']
-		},
-		{
-			category: 'Other',
-			skills: ['Agile', 'Scrum', 'Jira', 'Figma', 'Sentry', 'Instana', 'Grafana', 'Gradle', 'Maven', 'Postman', 'Webpack', 'ChatGPT', 'Cursor']
-		}
-	]
-
 	return (
 		<SectionTransition>
 			{/* Hero Section */}
 			<section className="pt-32 pb-16 md:pt-40 md:pb-20">
-				<div className="container-custom">
-					<div className="flex flex-col lg:flex-row items-center gap-12">
-						<motion.div 
-							className="w-full lg:w-1/2"
-							initial={{ opacity: 0, x: -20 }}
-							animate={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.5 }}
-						>
-							<h1 className="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
-							<p className="text-dark-600 dark:text-dark-300 text-lg mb-6 leading-relaxed">
-								With a rich background in both front-end and back-end technologies, I have rapidly contributed to and enhanced multiple high-scale projects. My expertise spans developing resilient APIs to optimizing user interfaces for enhanced performance. I excel in environments that challenge my abilities and allow for growth through cutting-edge technologies.
-							</p>
-							<p className="text-dark-600 dark:text-dark-300 text-lg mb-8 leading-relaxed">
-								I believe in continuous learning and staying up-to-date with the latest technologies and best practices. 
-								My goal is to build software that not only meets functional requirements but also provides an exceptional user experience.
-							</p>
-						</motion.div>
-						
-						<motion.div 
-							className="w-full lg:w-1/2 rounded-lg overflow-hidden shadow-lg"
-							initial={{ opacity: 0, x: 20 }}
-							animate={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.5, delay: 0.2 }}
-						>
-							<img 
-								src="https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-								alt="Profile" 
-								className="w-full h-auto object-cover"
-							/>
-						</motion.div>
-					</div>
+				<div className="container-custom relative z-10">
+					<motion.div
+						className="section-content text-center lg:text-left"
+						initial={{ opacity: 0, y: 12 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5 }}
+					>
+						<h1 className="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
+						<p className="text-dark-600 dark:text-dark-300 text-lg mb-6 leading-relaxed">
+							With a rich background in both front-end and back-end technologies, I have rapidly contributed to and enhanced multiple high-scale projects. My expertise spans developing resilient APIs to optimizing user interfaces for enhanced performance. I excel in environments that challenge my abilities and allow for growth through cutting-edge technologies.
+						</p>
+						<p className="text-dark-600 dark:text-dark-300 text-lg mb-8 leading-relaxed">
+							I believe in continuous learning and staying up-to-date with the latest technologies and best practices.
+							My goal is to build software that not only meets functional requirements but also provides an exceptional user experience.
+						</p>
+					</motion.div>
 				</div>
 			</section>
 
 			{/* Experience Section */}
-			<section className="section bg-dark-50 dark:bg-dark-800">
+			<section className="section">
 				<div className="container-custom">
-					<h2 className="text-3xl font-bold mb-12 text-center">Work Experience</h2>
-					
+					<h2 className="section-heading">Work Experience</h2>
+
 					<div className="space-y-8">
 						{experiences.map((exp, index) => (
 							<motion.div 
 								key={index}
-								className="bg-white dark:bg-dark-900 rounded-lg p-6 shadow-md"
+								className="project-card group"
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
+								whileHover={{ y: -2 }}
+								transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
 							>
-								<div className="flex flex-wrap justify-between items-start mb-4">
-									<div>
-										<h3 className="text-xl font-semibold">{exp.role}</h3>
-										<p className="text-primary-600 dark:text-primary-400">{exp.company}</p>
+								<div className="project-card-body">
+									<div className="flex flex-wrap items-start justify-between gap-4">
+										<div>
+											<h3 className="project-card-title">{exp.role}</h3>
+											<p className="mt-1 text-sm font-medium text-primary-600 dark:text-primary-400">
+												{exp.company}
+											</p>
+										</div>
+										<span className="project-card-meta">{exp.period}</span>
 									</div>
-									<span className="text-dark-500 dark:text-dark-400 text-sm bg-dark-100 dark:bg-dark-700 px-3 py-1 rounded-full">
-										{exp.period}
-									</span>
-								</div>
-								<p className="text-dark-600 dark:text-dark-300 mb-4">
-									{exp.description}
-								</p>
-								<div className="flex flex-wrap gap-2">
-									{exp.technologies.map((tech, i) => (
-										<span 
-											key={i}
-											className="px-3 py-1 bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-300 text-xs rounded-full"
-										>
-											{tech}
-										</span>
-									))}
+									<p className="project-card-desc">
+										{exp.description}
+									</p>
+									<div className="mt-4 flex flex-wrap gap-1.5">
+										{exp.technologies.map((tech, i) => (
+											<span key={i} className="project-tag">
+												{tech}
+											</span>
+										))}
+									</div>
 								</div>
 							</motion.div>
 						))}
@@ -171,64 +158,43 @@ const About = () => {
 			{/* Education Section */}
 			<section className="section">
 				<div className="container-custom">
-					<h2 className="text-3xl font-bold mb-12 text-center">Education</h2>
+					<h2 className="section-heading">Education</h2>
 					
-					<div className="space-y-8 max-w-3xl mx-auto">
+					<div className="space-y-8">
 						{education.map((edu, index) => (
 							<motion.div 
 								key={index}
-								className="bg-white dark:bg-dark-900 rounded-lg p-6 shadow-md"
+								className="project-card"
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
 								transition={{ duration: 0.5, delay: index * 0.1 }}
 							>
-								<div className="flex flex-wrap justify-between items-start mb-4">
-									<div>
-										<h3 className="text-xl font-semibold">{edu.degree}</h3>
-										<p className="text-primary-600 dark:text-primary-400">{edu.institution}</p>
+								<div className="project-card-body">
+									<div className="flex flex-wrap justify-between items-start gap-4">
+										<div>
+											<h3 className="project-card-title">{edu.degree}</h3>
+											<p className="mt-1 text-sm font-medium text-primary-600 dark:text-primary-400">{edu.institution}</p>
+										</div>
+										<span className="project-card-meta">
+											{edu.year}
+										</span>
 									</div>
-									<span className="text-dark-500 dark:text-dark-400 text-sm bg-dark-100 dark:bg-dark-700 px-3 py-1 rounded-full">
-										{edu.year}
-									</span>
+									<p className="project-card-desc">
+										{edu.description}
+									</p>
 								</div>
-								<p className="text-dark-600 dark:text-dark-300">
-									{edu.description}
-								</p>
 							</motion.div>
 						))}
 					</div>
 				</div>
 			</section>
 
-			{/* Skills Section */}
-			<section className="section bg-dark-50 dark:bg-dark-800">
+			{/* Skills — 3D word cloud */}
+			<section className="section">
 				<div className="container-custom">
-					<h2 className="text-3xl font-bold mb-12 text-center">Technical Skills</h2>
-					
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-						{/* Skill Category 1 */}
-						{skills.map((skill, index) => (
-							<motion.div 
-								key={index}
-								className="bg-white dark:bg-dark-900 rounded-lg p-6 shadow-md"
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								transition={{ duration: 0.5 }}
-							>
-								<h3 className="text-xl font-semibold mb-4 text-primary-600 dark:text-primary-400">{skill.category}</h3>
-								<ul className="space-y-2">
-									{skill.skills.map((skill, index) => (
-										<li key={index} className="flex items-center">
-											<span className="w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full mr-2"></span>
-											<span>{skill}</span>
-										</li>
-									))}
-								</ul>
-							</motion.div>
-						))}
-					</div>
+					<h2 className="section-heading">Technical Skills</h2>
+					<SkillsWordCloud categories={SKILL_CATEGORIES} />
 				</div>
 			</section>
 		</SectionTransition>

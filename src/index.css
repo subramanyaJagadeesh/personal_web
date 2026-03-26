@@ -41,6 +41,11 @@
     @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
 
+  /* Centered intro / hero copy — same on every page (main columns use full container-custom) */
+  .section-content {
+    @apply mx-auto w-full max-w-6xl;
+  }
+
   .btn {
     @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 text-base font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
   }
@@ -59,6 +64,73 @@
 
   .section-title {
     @apply text-3xl sm:text-4xl font-bold mb-12 text-center;
+  }
+
+  /* Shared UI primitives */
+  .card {
+    @apply bg-white dark:bg-dark-900 rounded-lg shadow-md;
+  }
+
+  .badge {
+    @apply px-3 py-1 bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-300 text-xs rounded-full;
+  }
+
+  /* Project cards — lighter, editorial feel (works over global 3D bg) */
+  .project-card {
+    @apply relative flex flex-col overflow-hidden rounded-2xl border border-dark-200/80 bg-white/75 shadow-sm backdrop-blur-md transition-[box-shadow,border-color,transform] duration-300 ease-out dark:border-dark-700/70 dark:bg-dark-900/45 dark:shadow-none;
+  }
+
+  .project-card:hover {
+    @apply border-primary-500/30 shadow-md shadow-dark-900/[0.06] dark:border-primary-400/25 dark:shadow-black/25;
+  }
+
+  .project-card-media {
+    @apply relative aspect-[16/10] shrink-0 overflow-hidden bg-dark-100 dark:bg-dark-800;
+  }
+
+  .project-card-media::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0 bg-gradient-to-t from-dark-900/20 via-transparent to-transparent dark:from-dark-950/40;
+  }
+
+  .project-card-body {
+    @apply flex flex-1 flex-col p-5 sm:p-6;
+  }
+
+  .project-card-title {
+    @apply text-lg font-semibold tracking-tight text-dark-900 dark:text-white;
+  }
+
+  .project-card-desc {
+    @apply mt-2 flex-1 text-sm leading-relaxed text-dark-600 dark:text-dark-300;
+  }
+
+  .project-card-actions {
+    @apply flex shrink-0 items-center gap-1 rounded-lg border border-dark-200/60 bg-white/60 p-0.5 dark:border-dark-600 dark:bg-dark-800/60;
+  }
+
+  .project-card-action {
+    @apply flex h-9 w-9 items-center justify-center rounded-md text-dark-500 transition-colors hover:bg-dark-100 hover:text-primary-600 dark:text-dark-400 dark:hover:bg-dark-700 dark:hover:text-primary-400;
+  }
+
+  .project-tag {
+    @apply inline-flex items-center rounded-md border border-dark-200/90 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-dark-500 dark:border-dark-600 dark:text-dark-400;
+  }
+
+  .project-card-meta {
+    @apply inline-flex shrink-0 items-center rounded-md border border-dark-200/90 px-2.5 py-1 text-xs font-medium text-dark-600 dark:border-dark-600 dark:text-dark-400;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold mb-12 text-center;
+  }
+
+  .field {
+    @apply w-full px-4 py-2 border border-dark-300 dark:border-dark-700 rounded-lg bg-white dark:bg-dark-800 text-dark-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400;
+  }
+
+  .page-hero {
+    @apply relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20;
   }
 }
 
