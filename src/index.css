@@ -58,6 +58,14 @@
     @apply btn bg-white text-dark-900 border border-dark-200 hover:bg-dark-50 focus:ring-dark-300 dark:bg-dark-800 dark:text-white dark:border-dark-700 dark:hover:bg-dark-700 dark:focus:ring-dark-600;
   }
 
+  /* Home hero — compact CTAs only below md (phones / small screens) */
+  @media (max-width: 767px) {
+    .hero .btn-primary,
+    .hero .btn-secondary {
+      @apply px-3.5 py-2 text-sm;
+    }
+  }
+
   .section {
     @apply py-16 sm:py-20 md:py-24;
   }

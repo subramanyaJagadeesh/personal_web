@@ -63,10 +63,10 @@ const revealTransition = {
 const Home = () => {
   return (
     <SectionTransition>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 md:pt-0">
-        <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Hero Section — scroll hint in flow on small screens so it stays below the portrait */}
+      <section className="hero relative flex min-h-screen flex-col pt-16 sm:pt-20 md:pt-0">
+        <div className="container-custom relative z-10 flex flex-1 flex-col justify-center">
+          <div className="grid grid-cols-1 gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-12 lg:items-center">
             <motion.div 
               className="section-content"
               initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ const Home = () => {
               transition={{ duration: 0.5 }}
             >
               <motion.span 
-                className="inline-block text-primary-600 dark:text-primary-400 font-medium mb-2"
+                className="mb-1 inline-block text-sm font-medium text-primary-600 dark:text-primary-400 sm:mb-2 sm:text-base"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -83,7 +83,7 @@ const Home = () => {
               </motion.span>
               
               <motion.h1 
-                className="font-bold text-4xl sm:text-5xl md:text-6xl text-dark-900 dark:text-white mb-4"
+                className="mb-2 text-3xl font-bold leading-[1.12] text-dark-900 dark:text-white sm:mb-4 sm:text-5xl sm:leading-tight md:text-6xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -92,7 +92,7 @@ const Home = () => {
               </motion.h1>
               
               <motion.h2 
-                className="text-lg sm:text-xl text-dark-600 dark:text-dark-300 mb-6 leading-relaxed"
+                className="mb-4 text-sm leading-snug text-dark-600 dark:text-dark-300 sm:mb-6 sm:text-lg sm:leading-relaxed md:text-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -101,14 +101,17 @@ const Home = () => {
               </motion.h2>
               
               <motion.div 
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-2.5 md:gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <Link to="/about" className="btn-primary group">
                   <span>View My Work</span>
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  <ArrowRight
+                    className="ml-1.5 shrink-0 group-hover:translate-x-1 transition-transform md:ml-2 h-[18px] w-[18px] md:h-5 md:w-5"
+                    aria-hidden
+                  />
                 </Link>
                 <Link to="/contact" className="btn-secondary">
                   Get In Touch
@@ -117,7 +120,7 @@ const Home = () => {
             </motion.div>
 
             <motion.div
-              className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto lg:mx-0 rounded-full overflow-hidden shadow-2xl border-8 border-white dark:border-dark-800"
+              className="relative mx-auto h-52 w-52 shrink-0 overflow-hidden rounded-full border-[6px] border-white shadow-2xl dark:border-dark-800 sm:h-64 sm:w-64 sm:border-8 md:h-80 md:w-80 lg:mx-0 lg:h-96 lg:w-96"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -130,16 +133,16 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
-        
-        <motion.div 
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10"
+
+        <motion.div
+          className="relative z-20 flex shrink-0 flex-col items-center pb-5 pt-2 sm:pb-8 sm:pt-4 lg:absolute lg:bottom-10 lg:left-1/2 lg:-translate-x-1/2 lg:pb-0 lg:pt-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
         >
-          <span className="text-dark-600 dark:text-dark-300 text-sm mb-2">Scroll to explore</span>
-          <motion.div 
-            animate={{ y: [0, 10, 0] }} 
+          <span className="mb-2 text-sm text-dark-600 dark:text-dark-300">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
           >
             <ArrowDown className="text-primary-600 dark:text-primary-400" size={20} />
