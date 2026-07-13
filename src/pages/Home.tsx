@@ -14,12 +14,14 @@ const projects = [
     description: 'A voice-powered VS Code extension that converts speech to code, leveraging Typescript, Whisper for transcription and OpenAI for code generation. Supports multiple programming languages and enhances hands-free coding productivity.',
     technologies: ['Typescript', 'OpenAI APIs'],
     image: whispercodeImg,
+    github: 'https://github.com/subramanyaJagadeesh/whispercode',
   },
   {
     title: 'SevLens',
     description: 'An open-source incident intelligence system that unifies incident intake, live timelines, retrieval, recommendations, RCA memory, and human decisioning in one local-first app.',
     technologies: ['React', 'TypeScript', 'FastAPI', 'Redis Streams', 'OpenSearch', 'SQLite'],
     image: sevLensLogo,
+    github: 'https://github.com/subramanyaJagadeesh/sev-lens',
   },
 ];
 
@@ -235,12 +237,12 @@ const Home = () => {
                             <div className="flex items-start justify-between gap-4">
                             <h3 className="project-card-title">{project.title}</h3>
                             <div className="project-card-actions" role="group" aria-label="Project links">
-                                <a href="#" className="project-card-action" aria-label="GitHub">
+                                <a href={project.github} className="project-card-action" aria-label="View source code on GitHub" target="_blank" rel="noopener noreferrer">
                                 <Github size={18} strokeWidth={1.75} />
                                 </a>
-                                <a href="#" className="project-card-action" aria-label="External link">
+                                <Link to="/projects" className="project-card-action" aria-label={`View all project details for ${project.title}`}>
                                 <ExternalLink size={18} strokeWidth={1.75} />
-                                </a>
+                                </Link>
                             </div>
                             </div>
                             <p className="project-card-desc line-clamp-4">
