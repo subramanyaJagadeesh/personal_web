@@ -71,14 +71,14 @@ const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/80 dark:bg-dark-900/80 backdrop-blur-md py-3 shadow-sm' 
+          ? 'bg-white/80 dark:bg-dark-950/80 backdrop-blur-md py-3 shadow-sm' 
           : 'bg-transparent py-5'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
         <NavLink to="/" className="text-xl font-bold relative z-20">
-          <span className="text-primary-600 dark:text-primary-400">SJ</span>
+          <span className="text-dark-900 dark:text-white">SJ</span>
           <span className="text-dark-900 dark:text-white">.dev</span>
         </NavLink>
 
@@ -90,9 +90,9 @@ const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
                 <NavLink 
                   to={link.path}
                   className={({ isActive }) => 
-                    `relative font-medium text-base transition-colors duration-300 hover:text-primary-600 dark:hover:text-primary-400 ${
+                    `relative font-medium text-base transition-colors duration-300 hover:text-dark-900 dark:hover:text-white ${
                       isActive 
-                        ? 'text-primary-600 dark:text-primary-400' 
+                        ? 'text-dark-900 dark:text-white' 
                         : 'text-dark-800 dark:text-dark-100'
                     }`
                   }
@@ -103,7 +103,7 @@ const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
                       {isActive && (
                         <motion.span 
                           layoutId="underline"
-                          className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-primary-600 dark:bg-primary-400" 
+                          className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-dark-900 dark:bg-white" 
                         />
                       )}
                     </>
@@ -130,7 +130,7 @@ const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
                 href={social.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-dark-600 hover:text-primary-600 dark:text-dark-300 dark:hover:text-primary-400 transition-colors"
+                className="text-dark-600 hover:text-dark-900 dark:text-dark-300 dark:hover:text-white transition-colors"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -162,19 +162,19 @@ const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
         {isMenuOpen && (
           <div 
             id="mobile-menu"
-            className="fixed inset-0 bg-white dark:bg-dark-900 z-10 md:hidden overflow-y-auto"
+            className="fixed inset-0 bg-white dark:bg-dark-950 z-10 md:hidden overflow-y-auto"
             style={{ top: '0', height: '100vh' }}
           >
             <div className="flex flex-col items-center justify-center min-h-full py-20">
               <ul className="flex flex-col items-center space-y-8 mb-8">
                 {navLinks.map((link) => (
                   <li key={link.path}>
-                    <NavLink 
+                    <NavLink
                       to={link.path}
-                      className={({ isActive }) => 
-                        `text-2xl font-medium transition-colors duration-300 hover:text-primary-600 dark:hover:text-primary-400 ${
-                          isActive 
-                            ? 'text-primary-600 dark:text-primary-400' 
+                      className={({ isActive }) =>
+                        `text-2xl font-medium transition-colors duration-300 hover:text-dark-900 dark:hover:text-white ${
+                          isActive
+                            ? 'text-dark-900 dark:text-white'
                             : 'text-dark-800 dark:text-dark-100'
                         }`
                       }
@@ -192,7 +192,7 @@ const Header = ({ toggleTheme, currentTheme }: HeaderProps) => {
                     href={social.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-dark-600 hover:text-primary-600 dark:text-dark-300 dark:hover:text-primary-400 transition-colors"
+                    className="text-dark-600 hover:text-dark-900 dark:text-dark-300 dark:hover:text-white transition-colors"
                     aria-label={social.label}
                   >
                     {social.icon}

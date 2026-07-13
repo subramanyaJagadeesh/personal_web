@@ -30,25 +30,25 @@ function StaticHeroBackground({ dark }: { dark: boolean }) {
       <div
         className={
           dark
-            ? 'absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-900 to-dark-800 opacity-95'
+            ? 'absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-800 opacity-95'
             : 'absolute inset-0 bg-gradient-to-b from-white via-white to-dark-50 opacity-95'
         }
       />
       <div
         className={
           dark
-            ? 'absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-primary-500/15 blur-3xl'
-            : 'absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-primary-600/10 blur-3xl'
+            ? 'absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-white/10 blur-3xl'
+            : 'absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-dark-900/10 blur-3xl'
         }
       />
       <div
         className={
           dark
-            ? 'absolute -bottom-28 -right-28 w-[520px] h-[520px] rounded-full bg-primary-400/10 blur-3xl'
-            : 'absolute -bottom-28 -right-28 w-[520px] h-[520px] rounded-full bg-primary-600/8 blur-3xl'
+            ? 'absolute -bottom-28 -right-28 w-[520px] h-[520px] rounded-full bg-white/5 blur-3xl'
+            : 'absolute -bottom-28 -right-28 w-[520px] h-[520px] rounded-full bg-dark-900/5 blur-3xl'
         }
       />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(14,165,233,0.25),transparent_35%),radial-gradient(circle_at_90%_60%,rgba(56,189,248,0.18),transparent_40%)] opacity-80" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(0,0,0,0.12),transparent_35%),radial-gradient(circle_at_90%_60%,rgba(255,255,255,0.12),transparent_40%)] opacity-80 dark:bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.12),transparent_35%),radial-gradient(circle_at_90%_60%,rgba(255,255,255,0.06),transparent_40%)]" />
     </div>
   );
 }
@@ -66,17 +66,17 @@ function HeroScene({ dark, pointer }: SceneProps) {
   const palette = useMemo(() => {
     if (dark) {
       return {
-        fog: new THREE.Color('#0f172a'),
-        sphere: new THREE.Color('#38bdf8'),
-        points: new THREE.Color('#60a5fa'),
-        accent: new THREE.Color('#0284c7'),
+        fog: new THREE.Color('#0a0a0a'),
+        sphere: new THREE.Color('#d4d4d4'),
+        points: new THREE.Color('#a3a3a3'),
+        accent: new THREE.Color('#f5f5f5'),
       };
     }
     return {
-      fog: new THREE.Color('#f8fafc'),
-      sphere: new THREE.Color('#0ea5e9'),
-      points: new THREE.Color('#0284c7'),
-      accent: new THREE.Color('#0ea5e9'),
+      fog: new THREE.Color('#fafafa'),
+      sphere: new THREE.Color('#171717'),
+      points: new THREE.Color('#525252'),
+      accent: new THREE.Color('#171717'),
     };
   }, [dark]);
 
@@ -259,4 +259,3 @@ export default function Hero3DBackground() {
     </div>
   );
 }
-

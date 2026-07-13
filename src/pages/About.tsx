@@ -34,7 +34,7 @@ const About = () => {
 			company: "Sun-net Inc",
 			role: "Software Engineer",
 			period: "June 2025 - Present",
-			description: "At Sun-Net, a company specializing in software solutions for the utlitiy industry, I contributed to enhancing their product called Intelligent Tools of Operation and Analytics. I optimized query resolution times by 90% by integrating an Agentic AI chat bot UI written in React and SCSS. Additionally, I implemented REST APIs with Java Spring for core services and Python Fast API for RAG and agent based chat to streamline data access." ,
+			description: "Built agent-based reporting and metadata intelligence tools that convert natural-language prompts into rich reports and schema definitions, reducing report development effort by 90%, generation time by 40%, and metadata effort by 60%. Developed Java Spring and Python FastAPI services for core workflows and agentic RAG retrieval, enabling sub-200ms responses. Architected a real-time SSE notification service for 10,000+ utility users and led production monitoring, incident response, and RCA to improve reliability.",
 			technologies: ['HTML', 'SCSS', 'Javascript', 'Java', 'React', 'Python', 'FastAPI', 'SQL']
 		},
 		{
@@ -102,7 +102,7 @@ const About = () => {
 					>
 						<h1 className="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
 						<p className="text-dark-600 dark:text-dark-300 text-lg mb-6 leading-relaxed">
-							With a rich background in both front-end and back-end technologies, I have rapidly contributed to and enhanced multiple high-scale projects. My expertise spans developing resilient APIs to optimizing user interfaces for enhanced performance. I excel in environments that challenge my abilities and allow for growth through cutting-edge technologies.
+							Software engineer with experience building intelligent, user-focused products that simplify complex workflows and improve operational efficiency. I’ve worked across product development, system design, and delivery for high-impact applications, with a focus on reliability, scalability, and clear user experience. I enjoy turning ambiguous problems into practical solutions that teams can trust in production.
 						</p>
 						<p className="text-dark-600 dark:text-dark-300 text-lg mb-8 leading-relaxed">
 							I believe in continuous learning and staying up-to-date with the latest technologies and best practices.

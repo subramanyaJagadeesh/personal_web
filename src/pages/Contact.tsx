@@ -50,13 +50,13 @@ const Contact = () => {
       icon: <Github size={24} />, 
       label: 'Github', 
       url: 'https://github.com/subramanyajagadeesh',
-      color: 'bg-[#333] hover:bg-[#24292e]'
+      color: 'bg-dark-900 hover:bg-dark-700 dark:bg-white dark:hover:bg-dark-200'
     },
     { 
       icon: <Linkedin size={24} />, 
       label: 'LinkedIn', 
       url: 'https://linkedin.com/in/subramanyajagadeesh',
-      color: 'bg-[#0077B5] hover:bg-[#006097]'
+      color: 'bg-dark-700 hover:bg-dark-500 dark:bg-dark-200 dark:hover:bg-white'
     },
   ];
 
@@ -97,14 +97,14 @@ const Contact = () => {
               
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 mr-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-dark-900 dark:text-white mr-4">
                     <Mail size={24} />
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-1">Email</h3>
                     <a 
                       href="mailto:subramanyaj.msse@gmail.com" 
-                      className="text-dark-600 dark:text-dark-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      className="text-dark-600 dark:text-dark-300 hover:text-dark-900 dark:hover:text-white transition-colors"
                     >
                       subramanyaj.msse@gmail.com
                     </a>
@@ -112,7 +112,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 mr-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-dark-900 dark:text-white mr-4">
                     <MapPin size={24} />
                   </div>
                   <div>
@@ -132,7 +132,7 @@ const Contact = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${social.color} text-white rounded-lg p-3 transition-transform hover:-translate-y-1`}
+                    className={`${social.color} text-white dark:text-dark-900 rounded-lg p-3 transition-transform hover:-translate-y-1`}
                     aria-label={social.label}
                   >
                     {social.icon}

@@ -11,6 +11,7 @@ import swiftselectImg from '../images/swiftselect.png';
 import taxgptImg from '../images/taxgpt.png';
 import schedulerImg from '../images/scheduler.png';
 import consistentImg from '../images/consistent.png';
+import sevLensLogo from '../images/sev-lens-logo.svg';
 
 // Define project type
 interface Project {
@@ -26,6 +27,14 @@ const Projects = () => {
   // Sample projects data
   const projects = useMemo<Project[]>(
     () => [
+      {
+        title: 'SevLens',
+        description:
+          'An open-source incident intelligence system that brings incident intake, live timelines, retrieval, recommendations, RCA memory, and human decisioning into one local-first app. Built to show why an incident happened, what evidence supports the recommendation, and how teams can review or override the analysis.',
+        technologies: ['React', 'TypeScript', 'FastAPI', 'Redis Streams', 'OpenSearch', 'SQLite'],
+        image: sevLensLogo,
+        github: 'https://github.com/subramanyaJagadeesh/sev-lens',
+      },
       {
 			title: 'WhisperCode',
 			description: 'A voice-powered VS Code extension that converts speech to code using Typescript, Whisper for transcription and OpenAI for code generation. Enhances productivity through hands-free coding across multiple programming languages.',
@@ -112,7 +121,7 @@ const Projects = () => {
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                        className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.title === 'SevLens' ? 'scale-[1.18] origin-center' : ''}`}
                       />
                     </div>
                     <div className="project-card-body">

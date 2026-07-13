@@ -84,7 +84,7 @@ const Cursor = () => {
       }}
     >
       <div 
-        className={`rounded-full bg-primary-500 w-4 h-4 ${
+        className={`rounded-full bg-white w-4 h-4 ${
           linkHovered ? 'w-12 h-12 bg-white' : clicked ? 'w-8 h-8' : 'w-4 h-4'
         }`}
       />

@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply font-sans antialiased text-dark-900 dark:text-white bg-white dark:bg-dark-900;
+    @apply font-sans antialiased text-dark-900 dark:text-white bg-white dark:bg-dark-950;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -32,7 +32,7 @@
   }
 
   ::selection {
-    @apply bg-primary-500/30 text-dark-900 dark:text-white;
+    @apply bg-primary-500/20 text-dark-900 dark:text-white;
   }
 }
 

@@ -3,7 +3,7 @@ import { ArrowRight, ArrowDown, Github, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import profile from '../images/dp.jpg';
 import whispercodeImg from '../images/whispercode.png';
-import swiftselectImg from '../images/swiftselect.png';
+import sevLensLogo from '../images/sev-lens-logo.svg';
 
 // Components
 import SectionTransition from '../components/ui/SectionTransition';
@@ -16,10 +16,10 @@ const projects = [
     image: whispercodeImg,
   },
   {
-    title: 'SwiftSelect',
-    description: 'An AI powered recruitment platform that helps companies find the best candidates for their open positions based on sentence textual matching and analysis.',
-    technologies: ['Next.js', 'Typescript', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
-    image: swiftselectImg,
+    title: 'SevLens',
+    description: 'An open-source incident intelligence system that unifies incident intake, live timelines, retrieval, recommendations, RCA memory, and human decisioning in one local-first app.',
+    technologies: ['React', 'TypeScript', 'FastAPI', 'Redis Streams', 'OpenSearch', 'SQLite'],
+    image: sevLensLogo,
   },
 ];
 
@@ -225,10 +225,10 @@ const Home = () => {
                     key={project.title}
                   >
                         <div className="project-card-media">
-                            <img 
+                      <img 
                                 src={project.image} 
                                 alt={project.title}
-                                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                                className={`h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.title === 'SevLens' ? 'scale-[1.18] origin-center' : ''}`}
                             />
                         </div>
                         <div className="project-card-body">
